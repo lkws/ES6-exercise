@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SpreadOperatorExamples</title>
+</head>
+<body>
+<ul>
+    <li>Go to store</li>
+    <li>Watch TV</li>
+    <li>Go Shopping</li>
+</ul>
+
+<script>
+    const todos = [
+        {id:1, name:'Go to store', completed: false},
+        {id:2, name:'Watch TV', completed: true},
+        {id:3, name:'Go Shopping', completed: false},
+    ]
+    const id = 2;
+    const todoIndex = todos.findIndex(todo => todo.id === id);
+    const newTodos = [...todos.slice(0, todoIndex), ...todos.slice(todoIndex + 1)];
+    console.log(newTodos);
+</script>
+</body>
+</html>

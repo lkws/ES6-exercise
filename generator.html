@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generator</title>
+</head>
+<body>
+<script>
+    function* listColors() {
+        // yield 'red';
+        // yield 'green';
+        // yield 'blue';
+        let i = 0;
+        yield i;
+        i++;
+        yield i;
+        i++;
+        yield i;
+    }
+    const colors = listColors();
+    const repos = [
+        { name:'grit', owner:'mojombo', description: 'this is first item details', id: 1 },
+        { name:'jsawesome', owner:'vanpelt', description: 'this is second item details', id: 2 },
+        { name:'merb-core', owner:'wycats', description: 'this is third item details', id: 3 },
+    ];
+    function* loop(arr) {
+        console.log(repos);
+        for(const repo of repos){
+            yield repo;
+        }
+    }
+    const repoGen = loop(repos);
+
+</script>
+</body>
+</html>

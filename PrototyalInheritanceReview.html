@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PrototyalInheritanceReview</title>
+</head>
+<body>
+<script>
+    function User(name, email) {
+        this.name = name;
+        this.email = email;
+    }
+    User.prototype.info = function(){
+        this.info = function(){
+            console.log(`Hi, I'm ${this.name}`);
+        }
+    }
+    const codecasts = new User('codecasts','i@codecasts.com');
+    const laravist = new User('laravist','i@laravist.com');
+
+    User.prototype.info = function(){
+            console.log(`Hi, I'm ${this.name}, my email is ${this.email}`);
+    }
+
+    User.prototype.description = function() {
+        console.log(`I'm a user of codecasts.com`)
+    }
+</script>
+</body>
+</html>

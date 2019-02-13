@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PromiseExample</title>
+</head>
+<body>
+<script>
+    const repos = [
+        { name:'grit', owner: 'mojombo', description: 'Girt is no longer maintained', id: 1},
+        { name:'jsawesome', owner: 'vanpelt', description: 'Awesome JSON', id: 2},
+        { name:'merb-core', owner: 'wycats', description: 'Merb Core: All you need. None you don\'t', id: 3},
+    ];
+    const owners = [
+        { name: 'mojombo', location: 'San Francisco', followers: 123},
+        { name: 'vanpelt', location: 'Bay Minette', followers: 1034},
+        { name: 'wycats', location: 'Los Angeles', followers: 388},
+    ];
+    function getRepoById(id) {
+        return new Promise((reslove,reject) =>{
+            setTimeout(() => {
+            const repo = repos.find(repo => repo.id === id);
+            if(repo) {
+                reslove(repo);
+            }
+            else {
+                reject(Error('No repo found,'))
+            }
+            }, 2000)
+        })
+    }
+    function comboundOwner(repo){
+        return new Promise((reslove, reject) =>{
+            const owner = owners.find(owner => owner.name === repo.owner);
+            if(owner) {
+                repo.owner = owner;
+                reslove(repo);
+            } else {
+                reject(Error('Can not found the owner.'))
+            }
+        })
+    }
+    getRepoById(1)
+    .then(repo => {
+        return comboundOwner(repo);
+    })
+    .then(repo =>{
+        console.log(repo);
+    })
+    .catch(err =>{
+        console.error(err);
+    })
+</script>
+</body>
+</html>

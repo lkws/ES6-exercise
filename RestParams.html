@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RestParams</title>
+</head>
+<body>
+<script>
+    // function sum(...numbers) {
+    //     return numbers.reduce((prev,curr) => prev + curr, 0)
+    // }
+    // console.log(sum(1,2,3,4))
+    // console.log(sum(1,2,3 ))
+    /*function converCurrency(rate, ...amounts) {
+        return amounts.map(amount => amount * rate);
+    }
+    const amounts = converCurrency(0.89,12,34,656,23)
+    console.log(amounts)*/
+    const player = ['Jelly', 123, 5.4, 6.7, 3.4, 7.8, 8.9];
+    const [name, id, ...scores] = player;
+    console.log(name, id, scores)
+</script>
+</body>
+</html>

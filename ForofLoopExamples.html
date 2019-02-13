@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For of Loop Examples</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li>Go to Store</li>
+    <li>Watch TV</li>
+    <li>Go Shopping</li>
+</ul>
+<script>
+    //for of 循环可用于数组，arguments，字符串，map..但不支持对象
+    const fruits = ['Apple','Banana','Orange','Mango'];
+    // for(let [index,fruit] of fruits.entries()){
+    // console.log(`${fruit} ranks ${index + 1} in my favorite fruits`);
+    // }
+
+    // function sum() {
+    //     let total =0;
+    //     for (let num of arguments) {
+    //         total = total + num;
+    //     }
+    //     console.log(total);
+    //     return total;
+    // }
+    //  sum(10,23,352,65,85,10);
+    const lis = document.querySelectorAll('li');
+    for (let li of lis){
+        li.addEventListener('click', function(){
+            this.classList.toggle('completed');
+        })
+    }
+
+</script>
+</body>
+</html>

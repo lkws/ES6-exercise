@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Build Promise</title>
+</head>
+<body>
+<script>
+const p = new Promise((resolve, reject) =>{
+        setTimeout (() => {
+            reject(Error('Laravist isn\'t awesome!'));
+    }, 2000);
+});
+p.then(data =>{ console.log(data)})
+    .catch(err => { console.error(err)});
+</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Arrow Function 2</title>
+</head>
+<body>
+<script>
+    const Kevin = {
+        name : 'Kevin',
+        hobbies: ['Cycling', 'Running', 'Sleeping'],
+        printHobbies: function(){
+            this.hobbies.map(hobby => {
+                console.log(`${this.name} loves ${hobby}`);
+            })
+        }
+    };
+    Kevin.printHobbies();
+</script>
+</body>
+</html>

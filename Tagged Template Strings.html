@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tagged Template Strings</title>
+    <style>
+        .highlight{
+            padding: 2px 5px;
+            background: #00adb5;
+            color:white;
+        }
+    </style>
+</head>
+<body>
+<script>
+    function highlight(strings,...values){
+        const highlighted = values.map(value => `<span class="highlight">${value}</span>`);
+        let str = '';
+       return strings.reduce((prev, curr, i) => `${prev}${curr}${highlighted[i] || ''}`,'')
+    }
+    const user = 'Mary';
+    const topic = 'learn to use markdown';
+    const sentence = highlight`${user} has commented on your topic ${topic}`;
+    document.body.innerHTML = sentence;
+</script>
+</body>
+</html>

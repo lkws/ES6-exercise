@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Iterator</title>
+</head>
+<body>
+<script>
+    const colors = ['red', 'blue', 'green'];
+    Array.prototype.values = function(){
+        let i = 0;
+        let items = this;
+        return{
+            next(){
+                const done = i >= items.length;
+                const value = done ? undefined : items[i++]
+                return {
+                    value,
+                    done
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

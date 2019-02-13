@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>generator-ajax-flow-control</title>
+</head>
+<body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+<script>
+    function ajax(url) {
+        axios.get(url).then(res => userGen.next(res.data));
+    }
+    function* steps() {
+        console.log('fetching users');
+        const users = yield ajax('https://api.github.com/users');
+        console.log('fetching firstUser');
+        const firstUser = yield ajax(`https://api.github.com/users/${users[0].login}`);
+        console.log ('fetching followers');
+        const followers = yield ajax(firstUser.followers_url);
+        console.log(followers);
+    }
+
+    const userGen = steps();
+    userGen.next();
+</script>
+</body>
+</html>

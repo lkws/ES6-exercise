@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extending-classes</title>
+</head>
+<body>
+<script>
+    // let methodName = 'info';
+    // class User {
+    //     constructor(name, email){
+    //         this.name = name;
+    //         this.email = email;
+    //     }
+    //     [methodName](){
+    //         console.log(`Hi,I'm ${this.name},my email is ${this.email}`);
+    //     }
+    //     static description(){
+    //         console.log(`I'm a user of codecasts.com`);
+    //     }
+    //     set github(value){
+    //         this.githubName = value;
+    //     }
+    //     get github(){
+    //         return `https://github.com/${this.githubName}`;
+    //     }
+    // }
+    // const codecasts = new User('codecasts','i@codecasts.com')
+    // const laravist = new User('laravist','i@laravist.com')
+class Animal {
+    constructor(name){
+        this.name = name;
+        this.belly = [];
+    }
+    eat(food){
+        this.belly.push(food);
+    }
+    speak(){
+        console.log(`Hi, I'm ${this.name}`);
+    }
+}
+
+class Dog extends Animal {
+    constructor(name,age){
+        super(name);
+        this.age = age;
+    }
+    bark(){
+        console.log(`Barl bark!`);
+    }
+    speak(){
+        console.log(`Bark bark! I'm ${this.name}`);
+    }
+}
+const lucky = new Dog('lucky', 2);
+</script>
+</body>
+</html>
